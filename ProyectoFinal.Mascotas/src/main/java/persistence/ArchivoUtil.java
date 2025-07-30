@@ -1,6 +1,7 @@
 
 package persistence;
 
+import exception.ArchivoInvalidoException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

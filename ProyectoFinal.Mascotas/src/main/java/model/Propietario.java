@@ -1,43 +1,25 @@
 package model;
 
-import java.io.Serializable;
-
-public class Propietario implements Serializable {
+public class Propietario extends Persona {
 
     private static final long serialVersionUID = 1L;
 
-    private String nombre;
-    private String telefono;
-    private long id;
+    private int id;
 
-    public Propietario(String telefono, long id, String nombre) {
-        this.telefono = telefono;
-        this.id = id;
-        this.nombre = nombre;
+    public Propietario(String nombre, String documento, String telefono, long id) {
+        super(nombre, documento, telefono);
+        this.id = (int) id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public long getId() {
+    public int getid() {
         return id;
     }
 
-    public String getTelefono() {
-        return telefono;
-
+    public void setDireccion(String direccion) {
+        this.id = id;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getTipo() {
+    public String getTipoPersona() {
         return "Propietario";
     }
 }

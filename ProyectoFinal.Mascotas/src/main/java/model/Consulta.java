@@ -1,14 +1,14 @@
 package model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 
 public final class Consulta implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String codigo;
-    private LocalDate fecha;
+    private String fecha;
     private Veterinario veterinario;
 
     public Consulta(String codigo, String fecha, Veterinario veterinario) {
@@ -37,7 +37,7 @@ public final class Consulta implements Serializable {
 //            throw new IllegalArgumentException("Código inválido.");
 //        }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 

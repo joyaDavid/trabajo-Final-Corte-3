@@ -3,11 +3,13 @@ package Model;
 import java.io.Serializable;
 
 public class Mascota implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private String especie;
     private int edad;
-    private int id;
+    private long id;
 
     public Mascota(String nombre, String especie, int edad) {
         this.nombre = nombre;
@@ -28,7 +30,7 @@ public class Mascota implements Serializable {
     }
 
     public int getid() {
-        return id;
+        return (int) id;
     }
 
     public void setEspecie(String especie) {
@@ -47,6 +49,34 @@ public class Mascota implements Serializable {
         return nombre + "Nombre" + especie + "Especie" + edad + "edad";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    public static Mascota desdeLineaArchivo(String linea) {
 //        String[] partes = linea.split(",");
 //        if (partes.length != 3) return null;

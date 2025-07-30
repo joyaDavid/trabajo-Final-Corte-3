@@ -2,29 +2,17 @@
 package dao;
 
 import dto.PropietarioDTO;
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import persistence.GestorPersistencia;
 
 
 public class PropietarioDAO {
-     private final String RUTA = "data/mascotas.dat";
+     private final String RUTA = "data/propietario.dat";
     private final GestorPersistencia gest = GestorPersistencia.getInstance();
-   
-    public static void crearArchivoSiNoExiste(String ruta) {
-    File archivo = new File(ruta);
-    try {
-        if (!archivo.exists()) {
-            archivo.getParentFile().mkdirs();
-            archivo.createNewFile();
-        }
-    } catch (IOException e) {
-        System.err.println("Error al crear archivo: " + e.getMessage());
-     }
-   }
             
-        public void guardar(PropietarioDTO consulta) {
+    public void guardar(PropietarioDTO consulta) {
+    gest.crearArchivoSiNoExiste(RUTA); 
         List<PropietarioDTO> lista = listar();
         lista.add(consulta);
         gest.guardarLista(RUTA, lista);

@@ -1,50 +1,41 @@
 package dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import model.Veterinario;
 
-public final class ConsultaDTO implements Serializable {
+public class ConsultaDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String codigo;
-    private LocalDate fecha;
+    private String fecha;
     private Veterinario veterinario;
-
-    public ConsultaDTO (String codigo, String fecha, Veterinario veterinario) {
-        setCodigo(codigo);
-        setFecha(fecha);
-        setVeterinario(veterinario);
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
+    private String propietario;
+    private String mascota;
+    private String descripcion;
+    
+    
+    public ConsultaDTO(String codigo, String fecha, Veterinario veterinario, String propietario, String mascota, String descripcion) {
         this.codigo = codigo;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fechaTexto) {
-        this.codigo = codigo;
-    }
-
-    public Veterinario getVeterinario() {
-        return veterinario;
-    }
-
-    public void setVeterinario(Veterinario veterinario) {
+        this.fecha = fecha;
         this.veterinario = veterinario;
+        this.propietario = propietario;
+        this.mascota = mascota;
+        this.descripcion = descripcion;
     }
 
-    public String toLineaArchivo() {
-        return codigo + "Codifgo" + fecha + "Fecha" + veterinario + "Veterinario";
-    }
+    public String getCodigo() { return codigo; }
+    public String getFecha() { return fecha; }
+    public Veterinario getVeterinario() { return veterinario; }
+    public String getPropietario() { return propietario; }
+    public String getMascota() { return mascota; }
+    public String getDescripcion() { return descripcion; }
+
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public void setFecha(String fecha) { this.fecha = fecha; }
+    public void setVeterinario(Veterinario veterinario) { this.veterinario = veterinario; }
+    public void setPropietario(String propietario) { this.propietario = propietario; }
+    public void setMascota(String mascota) { this.mascota = mascota; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 }
-
-

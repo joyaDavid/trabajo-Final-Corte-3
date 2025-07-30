@@ -2,33 +2,19 @@ package model;
 
 import java.io.Serializable;
 
-public final class Veterinario implements Serializable {
+public final class Veterinario extends Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String nombre;
+    public static boolean isEmpty() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     private String especialidad;
 
-    public Veterinario(String nombre, String especialidad) {
-        setNombre(nombre);
-        setEspecialidad(especialidad);
-    }
-
-//    public void mostrarPerfil() {
-//        System.out.println("Veterinario: " + nombre + " | Especialidad: " + especialidad);
-//    }
-    public String getNombre() {
-        return nombre;
-    }
-
-    /*public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }*/
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-        //        if (nombre == null || nombre.isBlank()) {
-        //        throw new IllegalArgumentException("El nombre del veterinario no puede estar vacío.");
-        //        } 
+    public Veterinario(String nombre, String documento, String telefono, String especialidad) {
+        super(nombre, documento, telefono);
+        this.especialidad = especialidad;
     }
 
     public String getEspecialidad() {
@@ -49,4 +35,20 @@ public final class Veterinario implements Serializable {
     public String toString() {
         return super.toString() + ", Especialidad: " + especialidad;
     }
+
+    public String getTipoPersona() {
+        return "Propietario";
+    }
 }
+
+//    public void mostrarPerfil() {
+//        System.out.println("Veterinario: " + nombre + " | Especialidad: " + especialidad);
+//    }
+
+/*public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }*/
+//        if (nombre == null || nombre.isBlank()) {
+//        throw new IllegalArgumentException("El nombre del veterinario no puede estar vacío.");
+//        } 
+

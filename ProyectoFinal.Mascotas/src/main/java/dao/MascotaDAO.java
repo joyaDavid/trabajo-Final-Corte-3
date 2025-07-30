@@ -2,29 +2,40 @@
 package dao;
 
 import dto.MascotaDTO;
-import java.io.Serializable;
+import java.io.File;
 import persistence.GestorPersistencia;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MascotaDAO implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-
+public class MascotaDAO {
+   
     private final String RUTA = "data/mascotas.dat";
     private final GestorPersistencia gestor = GestorPersistencia.getInstance();
     
-     public void guardar(MascotaDTO mascota) {
+     public MascotaDAO() {
+        System.out.println("🧭 Ruta absoluta: " + new File(RUTA).getAbsolutePath());
+        gestor.crearArchivoSiNoExiste(RUTA);
+    }
+     
+     public void guardar(MascotaDTO mascota) { 
         List<MascotaDTO> lista = listar();
         lista.add(mascota);
         gestor.guardarLista(RUTA, lista);
-
     }
-
     public List<MascotaDTO> listar() {
-        List<MascotaDTO> lista = gestor.cargarLista(RUTA);
-        return lista != null ? lista : new ArrayList<>();
+    List<MascotaDTO> lista = gestor.cargarLista(RUTA);
+    return lista != null ? lista : new ArrayList<>();
+}
+    
+    public MascotaDTO buscarPorNombre(String nombre) {
+    List<MascotaDTO> mascotas = cargarMascotas();
+    for (MascotaDTO m : mascotas) {
+        if (m.getNombre().equalsIgnoreCase(nombre)) {
+            return m;
+        }
     }
+    return null;
+}
 
     public void eliminar(int indice) {
         List<MascotaDTO> lista = listar();
@@ -41,4 +52,13 @@ public class MascotaDAO implements Serializable {
             gestor.guardarLista(RUTA, lista);
         }
     }
+    public void limpiarTodo() {
+    gestor.guardarLista(RUTA, new ArrayList<>()); 
+   }
+    
+    public List<MascotaDTO> cargarMascotas() {
+        return GestorPersistencia.getInstance().cargarLista(RUTA);
+    }
 }
+
+

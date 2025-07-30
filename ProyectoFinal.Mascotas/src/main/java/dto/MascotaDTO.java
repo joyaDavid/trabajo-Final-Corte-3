@@ -9,11 +9,13 @@ public class MascotaDTO implements Serializable {
     private String nombre;
     private String especie;
     private int edad;
+    private String raza;
 
-    public MascotaDTO(String nombre, String especie, int edad) {
+    public MascotaDTO(String nombre, String especie, int edad, String raza) {
         this.nombre = nombre;
         this.especie = especie;
         this.edad = edad;
+        this.raza = raza;
     }
 
     public String getNombre() { 
@@ -24,6 +26,9 @@ public class MascotaDTO implements Serializable {
     }
     public int getEdad() { 
         return edad; 
+    }
+    public String getRaza() {
+        return raza;
     }
     
     @Override

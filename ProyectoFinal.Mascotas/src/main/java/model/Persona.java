@@ -3,22 +3,18 @@ package model;
 
 import java.io.Serializable;
 
-public class Persona implements Serializable {
+public abstract class Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String nombre;
     private String documento;
-    private String telefono;
-    private String tipo;     
-    private String extra;    
+    private String telefono;   
 
-    public Persona(String nombre, String documento, String telefono, String tipo, String extra) {
+    public Persona(String nombre, String documento, String telefono) {
         this.nombre = nombre;
         this.documento = documento;
         this.telefono = telefono;
-        this.tipo = tipo;
-        this.extra = extra;
     }
 
 
@@ -46,24 +42,8 @@ public class Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getExtra() {
-        return extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
     @Override
     public String toString() {
-        return tipo + ": " + nombre + " (" + documento + "), Tel: " + telefono + ", Info: " + extra;
+        return nombre + ",nombre:" + documento + ",documento:" + telefono  + ",telefono:";
     }
 }

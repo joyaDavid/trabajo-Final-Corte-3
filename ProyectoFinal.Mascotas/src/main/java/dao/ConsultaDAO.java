@@ -12,6 +12,7 @@ public class ConsultaDAO {
     private final GestorPersistencia gest = GestorPersistencia.getInstance();
         
     public void guardar(ConsultaDTO consulta) {
+    gest.crearArchivoSiNoExiste(RUTA); 
         List<ConsultaDTO> lista = listar();
         lista.add(consulta);
         gest.guardarLista(RUTA, lista);
@@ -31,10 +32,10 @@ public class ConsultaDAO {
         }
     }
 
-    public void actualizar(int indice, ConsultaDTO mascotaActualizada) {
+    public void actualizar(int indice, ConsultaDTO consultaActualizada) {
         List<ConsultaDTO> lista = listar();
         if (indice >= 0 && indice < lista.size()) {
-            lista.set(indice, mascotaActualizada);
+            lista.set(indice, consultaActualizada);
             gest.guardarLista(RUTA, lista);
         }
     }
